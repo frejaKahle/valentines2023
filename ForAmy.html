@@ -1,0 +1,113 @@
+<head>
+    <style>
+        body {
+            background-color: #202040;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+        
+        section {
+            background-color: #fff;
+            width: 80%;
+            height: 80%;
+            position: relative;
+            top: 10%;
+            left: 10%;
+            text-align: center;
+            background-origin: 5px;
+            border-radius: 2vh;
+            border: #fff 2vh solid;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            font-size: 6vh
+        }
+        
+        h2 {
+            font-size: 3vh;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .fully-centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: left;
+            transform: translate(-50%, -50%);
+        }
+        
+        .cover {
+            transition: color 500ms, opacity 1s;
+            opacity: 0;
+            color: #fff;
+        }
+        
+        .cover.uncover {
+            opacity: 1;
+            color: inherit;
+        }
+        
+        .transtext {
+            background: linear-gradient(to left, #5BCEFA 20%, #F5A9B8 20% 40%, #fff 40% 60%, #F5A9B8 60% 80%, #5BCEFA 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        .bottommiddle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .shadowpulse {
+            animation-name: spulse;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        
+        @keyframes spulse {
+            0% {
+                text-shadow: #202040 0 0 2vh;
+            }
+            100% {
+                text-shadow: #202040 0 0 3vh;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <section style="z-index: -1;">
+        <div id="div1" class="">
+            <h1>For Amy</h1>
+            <div style="font-size:50vh;top:50%; color:#ff3030;z-index: -1;" class="fully-centered">&hearts;</div>
+            <h2 class="bottommiddle">(Please touch anywhere)</h2>
+        </div>
+        <div id="div2" class="cover">
+            <h1>I Love You!</h1>
+            <h2>You are the light</h2>
+            <h2>in the dark that</h2>
+            <h2>guides me home.</h2>
+            <br>
+            <div style="font-size:50vh;top:65%" class="fully-centered transtext">&hearts;</div>
+            <div style="font-size:50vh;top:65%;z-index: -1;" class="fully-centered shadowpulse">&hearts;</div>
+            <h2 class="bottommiddle">With love from Freja :3</h2>
+        </div>
+    </section>
+
+</body>
+
+<script>
+    document.addEventListener("click", async(e) => {
+        document.getElementById("div1").classList.add("cover");
+        await new Promise(r => setTimeout(r, 1000));
+        document.getElementById("div1").style.display = "none";
+        document.getElementById("div2").classList.add("uncover");
+
+    });
+</script>
